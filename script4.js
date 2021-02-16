@@ -1,17 +1,42 @@
-var min = +prompt("Введите минимальное число");
-var max = +prompt("Введите максимальное число");
-for (let i = 0; i < 10; i++) {
-  var a = RandomNumber(min, max);
-  var b = RandomNumber(min, max);
-  var total = +prompt(`${a} + ${b} =`);
-  if (total == a + b) {
-    alert(`${a} + ${b} = ${a + b}. Ваш ответ ${total} Молодец`);
-  } else {
-    alert(`${a} + ${b} = ${a + b}. Ваш ответ ${total} Ошибка`);
+let n = +prompt("Введите количество примеров");
+for (let i = 0; i < n; i++) {
+  var a = RandomNumber();
+  var b = RandomNumber();
+  if (randomOperation() == 1) {
+    var total = +prompt(`${a} + ${b} =`);
+    if (total == a + b) {
+      alert(`${a} + ${b} = ${a + b}. Ваш ответ ${total} Молодец`);
+    } else {
+      alert(`${a} + ${b} = ${a + b}. Ваш ответ ${total} Ошибка`);
+    }
+  } else if (randomOperation() == 2) {
+    var total = +prompt(`${a} - ${b} =`);
+    if (total == a - b) {
+      alert(`${a} - ${b} = ${a - b}. Ваш ответ ${total} Молодец`);
+    } else {
+      alert(`${a} - ${b} = ${a - b}. Ваш ответ ${total} Ошибка`);
+    }
+  } else if (randomOperation() == 3) {
+    var total = +prompt(`${a} * ${b} =`);
+    if (total == a * b) {
+      alert(`${a} * ${b} = ${a * b}. Ваш ответ ${total} Молодец`);
+    } else {
+      alert(`${a} * ${b} = ${a * b}. Ваш ответ ${total} Ошибка`);
+    }
+  } else if (randomOperation() == 4) {
+    var total = +prompt(`${a} / ${b} =`);
+    if (total == a / b) {
+      alert(`${a} / ${b} = ${a / b}. Ваш ответ ${total} Молодец`);
+    } else {
+      alert(`${a} / ${b} = ${a / b}. Ваш ответ ${total} Ошибка`);
+    }
   }
 }
 
-function RandomNumber(min, max) {
-  return Math.ceil(Math.random() * (max - min) + min);
+function RandomNumber() {
+  return Math.ceil(Math.random() * (10 - 1) + 1);
 }
-RandomNumber(min, max);
+
+function randomOperation() {
+  return Math.ceil(Math.random() * (4 - 1) + 1);
+}
